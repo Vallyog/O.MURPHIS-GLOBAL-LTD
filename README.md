@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# O.MURPHIS GLOBAL LTD.
 
-## Getting Started
+Responsive corporate website for O.MURPHIS GLOBAL LTD., built with Next.js App
+Router, TypeScript, and CSS. The site intentionally avoids unverified company,
+equipment, project, contact, and credential claims.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content and contact configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit [`lib/site-config.ts`](./lib/site-config.ts) to update the company contact
+details and service categories:
 
-## Learn More
+- `contact.phone` and `contact.email` are blank until verified.
+  `contact.whatsappPhone` is set to the provided WhatsApp number; formatting is
+  stripped when building the `wa.me` link.
+- The service categories are explicitly marked as potential/unconfirmed on
+  the site. Confirm them before presenting them as active company services.
+- Replace representative Unsplash photography with approved company imagery
+  when available. Current images are illustrative and are not presented as
+  company-owned equipment or completed work.
 
-To learn more about Next.js, take a look at the following resources:
+## Connecting the enquiry form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The quote form validates required fields in the browser. It does not claim
+success or transmit enquiry details while `company.formEndpoint` is blank.
+Configure that value with the public URL of a real form service or a
+server-side endpoint that accepts a JSON `POST` containing `name`, `email`,
+`phone`, `service`, and `message`. The form only displays success after the
+endpoint returns an HTTP success status; non-success responses and connection
+failures are shown to the visitor.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For production, use an endpoint you control or a reputable form provider, add
+server-side validation and spam protection, configure its allowed origins and
+data-retention policy, and avoid putting private API keys in this client-side
+configuration. If the provider requires a secret, proxy submissions through a
+server-side route and keep the secret in deployment environment variables.
 
-## Deploy on Vercel
+## Check and build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy to a Node.js host that supports Next.js. Build with `npm run build`, then
+start the production server with `npm run start`. Configure the form endpoint
+and verified public contact details before publishing.
+# O.MURPHIS-GLOBAL-LTD
