@@ -1,29 +1,10 @@
 import Image from "next/image";
+import { ProjectShowcase } from "@/components/project-showcase";
 import { QuoteForm } from "@/components/quote-form";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Icon } from "@/components/icon";
-import { company, potentialServices } from "@/lib/site-config";
-
-const galleryImages = [
-  {
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
-    alt: "Construction crew working at a large building site; representative stock photography.",
-    label: "Building & construction",
-    className: "gallery-image--wide",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=900&q=85",
-    alt: "Heavy construction machinery at work; representative stock photography.",
-    label: "Heavy machinery",
-    className: "",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85",
-    alt: "Construction site activity; representative stock photography.",
-    label: "Project support",
-    className: "",
-  },
-];
+import { company } from "@/lib/site-config";
 
 const principles = [
   {
@@ -64,7 +45,7 @@ export default function Home() {
         <section className="hero" id="home" aria-labelledby="hero-title">
           <Image
             className="hero__image"
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2400&q=90"
+            src="/projects/showcase-02.jpg"
             alt=""
             fill
             priority
@@ -87,11 +68,8 @@ export default function Home() {
               heavy machinery.
             </p>
             <div className="hero__actions">
-              <a className="button button--yellow" href="#contact">
-                Discuss a project <Icon name="arrow-down" />
-              </a>
-              <a className="button button--outline-light" href="#services">
-                Explore our capabilities
+              <a className="button button--yellow" href="https:wa.me/+2347036212091">
+                Reach Out To Us!
               </a>
             </div>
           </div>
@@ -126,7 +104,7 @@ export default function Home() {
                 project-minded business for clients with work to get moving.
               </p>
               <a className="text-link" href="#contact">
-                Tell us what you’re planning
+                Tell us what you need?
               </a>
             </div>
             <div className="intro-aside">
@@ -146,107 +124,6 @@ export default function Home() {
         </section>
 
         <section
-          className="services-section section-pad"
-          id="services"
-          aria-labelledby="services-title"
-        >
-          <div className="page-wrap">
-            <div className="section-heading section-heading--light">
-              <div className="section-label section-label--light">
-                <span className="section-label__number"></span>
-                <span>What we do</span>
-              </div>
-              <div className="section-heading__main">
-                <p className="eyebrow eyebrow--yellow">CAPABILITIES</p>
-                <h2 id="services-title">
-                  The right support
-                  <br />
-                  <span>for the work ahead.</span>
-                </h2>
-                <p className="section-heading__note">
-                  Potential service categories — please confirm and edit before
-                  publishing.
-                </p>
-              </div>
-            </div>
-
-            <div className="services-grid">
-              {potentialServices.map((service, index) => (
-                <article className="service-card" key={service.title}>
-                  <div className="service-card__top">
-                    <span className="service-card__index">
-                      0{index + 1} / 06
-                    </span>
-                    <Icon name={service.icon} />
-                  </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <span className="service-card__status">
-                    UNCONFIRMED SERVICE AREA
-                  </span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section
-          className="gallery-section section-pad"
-          id="equipment"
-          aria-labelledby="gallery-title"
-        >
-          <div className="page-wrap">
-            <div className="gallery-heading">
-              <div>
-                <div className="section-label">
-                  <span className="section-label__number"></span>
-                  <span>Equipment & capability</span>
-                </div>
-                <p className="eyebrow">A CLOSER LOOK</p>
-                <h2 id="gallery-title">
-                  Ready for the
-                  <br />
-                  <span>work in front of you.</span>
-                </h2>
-              </div>
-              <p className="gallery-heading__copy">
-                Representative imagery only. It does not show confirmed
-                O.MURPHIS equipment, inventory or completed work.
-              </p>
-            </div>
-
-            <div className="gallery-grid">
-              {galleryImages.map((image, index) => (
-                <figure
-                  className={`gallery-card ${image.className}`}
-                  key={image.src}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes={
-                      index === 0
-                        ? "(max-width: 760px) 100vw, 66vw"
-                        : "(max-width: 760px) 100vw, 33vw"
-                    }
-                  />
-                  <span className="gallery-card__number">
-                    0{index + 1} / IMAGE
-                  </span>
-                  <figcaption>
-                    <span>{image.label}</span>
-                    <span className="gallery-card__caption-note">
-                      Illustrative photography
-                    </span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section
           className="projects-section section-pad"
           id="projects"
           aria-labelledby="projects-title"
@@ -255,33 +132,22 @@ export default function Home() {
             <div className="projects-intro">
               <div className="section-label section-label--light">
                 <span className="section-label__number"></span>
-                <span>Selected work</span>
+                <span>Our Products</span>
               </div>
-              <p className="eyebrow eyebrow--yellow">PROJECT PORTFOLIO</p>
+              <p className="eyebrow eyebrow--yellow">Check Out</p>
               <h2 id="projects-title">
-                Work worth
+                What WE
                 <br />
-                <span>showing.</span>
+                <span>Sell . . .</span>
               </h2>
               <p>
-                We look forward to sharing approved project stories as our
-                portfolio is confirmed.
+                These are some of the products we sell. We have a wide range of products to choose from. If you don't see what you're looking for, please contact us and we will be happy to help you find it.
               </p>
               <a className="button button--outline-light" href="#contact">
                 Reach Out To Us <Icon name="arrow-down" />
               </a>
             </div>
-            <div className="project-empty">
-              <div className="project-empty__graphic" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <span className="project-empty__label">
-                PROJECT SHOWCASE
-              </span>
-              <h3>Portfolio coming soon</h3>
-            </div>
+            <ProjectShowcase />
           </div>
         </section>
 
@@ -334,7 +200,7 @@ export default function Home() {
               </div>
               <p className="eyebrow eyebrow--yellow">LET’S BUILD MOMENTUM</p>
               <h2 id="contact-title">
-                Have a project
+                Have a Project or Product
                 <br />
                 <span>in mind?</span>
               </h2>
@@ -387,9 +253,9 @@ export default function Home() {
                         {company.contact.email}
                       </a>
                     ) : (
-                      <p className="contact-placeholder">
-                        Email address
-                      </p>
+                      <a href="mailto:murphis80@yahoo.com"><p className="contact-placeholder">
+                        murphis80@yahoo.com
+                      </p></a>
                     )}
                   </div>
                 </div>
@@ -413,7 +279,6 @@ export default function Home() {
             <div className="contact-form-wrap">
               <div className="contact-form-heading">
                 <span>PROJECT ENQUIRY</span>
-                <span>01 — 03</span>
               </div>
               <QuoteForm />
             </div>
@@ -421,36 +286,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="page-wrap">
-          <div className="footer-main">
-            <a className="brand brand--footer" href="#home" aria-label="O.Murphis Global home">
-              <span className="brand__mark" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
-              <span className="brand__text">
-                <strong>O.MURPHIS</strong>
-                <span>GLOBAL LTD.</span>
-              </span>
-            </a>
-            <p>
-              Building progress.
-              <br />
-              Powering possibilities.
-            </p>
-            <a className="footer-top-link" href="#home">
-              BACK TO TOP <Icon name="arrow-up" />
-            </a>
-          </div>
-          <div className="footer-bottom">
-            <span>© O.MURPHIS GLOBAL LTD. All rights reserved.</span>
-            <span>LAGOS, NIGERIA</span>
-            <span>BUILDING · CONSTRUCTION · HEAVY MACHINERY</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

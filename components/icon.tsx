@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 export type IconName =
   | "arrow-down"
+  | "arrow-left"
+  | "arrow-right"
   | "arrow-up"
   | "arrow-up-right"
   | "building"
@@ -13,12 +15,23 @@ export type IconName =
   | "pin"
   | "rental"
   | "support"
-  | "supply";
+  | "supply"
+  | "whatsapp";
 
 const iconPaths: Record<IconName, ReactNode> = {
   "arrow-down": (
     <>
       <path d="M12 5v14M5 12l7 7 7-7" />
+    </>
+  ),
+  "arrow-left": (
+    <>
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </>
+  ),
+  "arrow-right": (
+    <>
+      <path d="M5 12h14M12 5l7 7-7 7" />
     </>
   ),
   "arrow-up": (
@@ -88,6 +101,12 @@ const iconPaths: Record<IconName, ReactNode> = {
   supply: (
     <>
       <path d="M4 6h16v13H4zM8 6V3h8v3M4 11h16M9 15h6" />
+    </>
+  ),
+  whatsapp: (
+    <>
+      <path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z" />
+      <path d="M8.2 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.5 0 .3-.2 1.2-.7 1.6-.5.4-1.1.6-1.8.5-.7-.1-1.6-.4-2.7-1-1.4-.8-2.5-2-3.1-3-.6-1-.8-1.8-.8-2.4 0-.6.3-1.2.6-1.7Z" />
     </>
   ),
 };

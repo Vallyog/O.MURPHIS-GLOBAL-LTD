@@ -23,9 +23,9 @@ details and service categories:
   stripped when building the `wa.me` link.
 - The service categories are explicitly marked as potential/unconfirmed on
   the site. Confirm them before presenting them as active company services.
-- Replace representative Unsplash photography with approved company imagery
-  when available. Current images are illustrative and are not presented as
-  company-owned equipment or completed work.
+- The project showcase displays the nine supplied photos from
+  `public/projects/` in a swipeable carousel. It does not assign project names
+  or make claims about the images.
 
 ## Connecting the enquiry form
 
