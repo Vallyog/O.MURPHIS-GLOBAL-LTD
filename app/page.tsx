@@ -91,7 +91,7 @@ export default function Home() {
               <span>About us</span>
             </div>
             <div className="intro-copy">
-              <p className="eyebrow">A COMPANY BUILT AROUND POSSIBILITY</p>
+              <p className="eyebrow">A BUSINESS BUILT AROUND CONSTRUCTION</p>
               <h2>
                 Ambition deserves
                 <br />
@@ -180,10 +180,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <p className="approach-note">
-              Proposed working principles — confirm internally before
-              publishing as company commitments.
-            </p>
+
           </div>
         </section>
 
@@ -198,11 +195,11 @@ export default function Home() {
                 <span className="section-label__number"></span>
                 <span>Get in touch</span>
               </div>
-              <p className="eyebrow eyebrow--yellow">LET’S BUILD MOMENTUM</p>
+              <p className="eyebrow eyebrow--yellow">Have a Product in Mind?</p>
               <h2 id="contact-title">
-                Have a Project or Product
+                Reach Out 
                 <br />
-                <span>in mind?</span>
+                <span>To Us.</span>
               </h2>
               <p className="contact-copy__intro">
                 Share a few details and start a conversation with our team.
@@ -278,7 +275,7 @@ export default function Home() {
             </div>
             <div className="contact-form-wrap">
               <div className="contact-form-heading">
-                <span>PROJECT ENQUIRY</span>
+                <span>PRODUCT ENQUIRY</span>
               </div>
               <QuoteForm />
             </div>

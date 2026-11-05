@@ -111,10 +111,10 @@ export function QuoteForm() {
         </label>
       </div>
       <label className="form-field">
-        <span>Tell us about your project <span aria-hidden="true">*</span></span>
+        <span>Tell us which products you need <span aria-hidden="true">*</span></span>
         <textarea
           name="message"
-          placeholder="A little about your project, location and timing..."
+          placeholder="Product names or types, quantities, delivery location and timing..."
           required
           rows={4}
           maxLength={3000}
@@ -131,9 +131,7 @@ export function QuoteForm() {
             Sending enquiry <span className="form-spinner" aria-hidden="true" />
           </>
         ) : (
-          <>
-            Send project enquiry 
-          </>
+          <>Send product enquiry</>
         )}
       </button>
       <div className="form-status" aria-live="polite" role="status">

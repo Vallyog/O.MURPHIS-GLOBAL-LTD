@@ -1666,7 +1666,21 @@ textarea:focus-visible {
 
   .projects-layout {
     grid-template-columns: 1fr;
-    gap: 43px;
+    row-gap: 0;
+  }
+
+  .projects-intro {
+    display: contents;
+  }
+
+  .projects-intro .button {
+    order: 2;
+    justify-self: start;
+    margin-top: 28px;
+  }
+
+  .project-showcase {
+    order: 1;
   }
 
   .projects-intro .section-label {
@@ -1674,6 +1688,7 @@ textarea:focus-visible {
   }
 
   .projects-intro > p:not(.eyebrow) {
+    margin-bottom: 28px;
     font-size: 0.78rem;
   }
 
