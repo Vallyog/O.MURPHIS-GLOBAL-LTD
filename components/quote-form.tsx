@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { potentialServices, company } from "@/lib/site-config";
-import { Icon } from "@/components/icon";
 
 type SubmissionState =
   | { status: "idle" }
@@ -21,29 +19,27 @@ export function QuoteForm() {
 
     if (!form.reportValidity()) return;
 
-    if (!company.formEndpoint) {
-      setSubmission({
-        status: "error",
-        message:
-          "Enquiries are not connected yet. Please contact the company directly once verified contact details are available.",
-      });
-      return;
-    }
-
     setSubmission({ status: "loading" });
 
     try {
-      const response = await fetch(company.formEndpoint, {
+      const response = await fetch("/api/product-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
 
       if (!response.ok) {
+        const result: unknown = await response.json();
+        const message =
+          typeof result === "object" &&
+          result !== null &&
+          "error" in result &&
+          typeof result.error === "string"
+            ? result.error
+            : "We couldn’t send your enquiry just now. Please try again later.";
         setSubmission({
           status: "error",
-          message:
-            "We couldn’t send your enquiry just now. Please try again later.",
+          message,
         });
         return;
       }
@@ -73,19 +69,6 @@ export function QuoteForm() {
           />
         </label>
         <label className="form-field">
-          <span>Email address <span aria-hidden="true">*</span></span>
-          <input
-            autoComplete="email"
-            name="email"
-            placeholder="you@company.com"
-            type="email"
-            required
-            maxLength={254}
-          />
-        </label>
-      </div>
-      <div className="form-row">
-        <label className="form-field">
           <span>Phone number</span>
           <input
             autoComplete="tel"
@@ -95,21 +78,18 @@ export function QuoteForm() {
             maxLength={40}
           />
         </label>
-        <label className="form-field">
-          <span>Area of interest <span aria-hidden="true">*</span></span>
-          <select name="service" defaultValue="" required>
-            <option value="" disabled>
-              Select a service area
-            </option>
-            {potentialServices.map((service) => (
-              <option value={service.title} key={service.title}>
-                {service.title} (subject to confirmation)
-              </option>
-            ))}
-            <option value="Other">Other / not listed</option>
-          </select>
-        </label>
       </div>
+      <label className="form-field">
+        <span>Email address <span aria-hidden="true">*</span></span>
+        <input
+          autoComplete="email"
+          name="email"
+          placeholder="you@company.com"
+          type="email"
+          required
+          maxLength={254}
+        />
+      </label>
       <label className="form-field">
         <span>Tell us which products you need <span aria-hidden="true">*</span></span>
         <textarea
@@ -144,9 +124,6 @@ export function QuoteForm() {
           <p className="form-status--error">{submission.message}</p>
         )}
       </div>
-      <p className="form-privacy-note">
-        Your details will only be sent when an enquiry service is configured.
-      </p>
     </form>
   );
 }

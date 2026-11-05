@@ -11,8 +11,6 @@ export const company = {
     email: "",
     whatsappPhone: "+2348035812003",
   },
-  // Set this to a verified form endpoint that accepts JSON POST requests.
-  formEndpoint: "",
 };
 
 export const potentialServices = [

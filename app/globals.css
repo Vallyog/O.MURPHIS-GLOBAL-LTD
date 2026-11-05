@@ -668,7 +668,7 @@ textarea:focus-visible {
   position: relative;
   display: flex;
   width: 100%;
-  height: clamp(340px, 34vw, 430px);
+  height: clamp(360px, 34vw, 440px);
   overflow-x: auto;
   overflow-y: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -678,7 +678,7 @@ textarea:focus-visible {
   scroll-behavior: smooth;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y pinch-zoom;
+  touch-action: pan-x pan-y pinch-zoom;
   user-select: none;
   cursor: grab;
 }
@@ -704,40 +704,26 @@ textarea:focus-visible {
 }
 
 .project-showcase__slide img {
-  padding: 8px;
   object-fit: contain;
-}
-
-.project-showcase__image-number {
-  position: absolute;
-  z-index: 1;
-  top: 18px;
-  left: 18px;
-  padding: 8px 10px;
-  background: rgba(23, 26, 25, 0.82);
-  color: var(--white);
-  font-size: 0.55rem;
-  font-weight: 650;
-  letter-spacing: 0.14em;
 }
 
 .project-showcase__controls {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding-top: 15px;
+  gap: 10px;
+  padding-top: 10px;
 }
 
 .project-showcase__pagination {
   display: flex;
   flex: 1;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
 }
 
 .project-showcase__dot {
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   flex: 0 0 auto;
   padding: 0;
   border: 0;
@@ -750,7 +736,7 @@ textarea:focus-visible {
 }
 
 .project-showcase__dot.is-active {
-  width: 22px;
+  width: 16px;
   background: var(--yellow);
 }
 
@@ -764,13 +750,13 @@ textarea:focus-visible {
 
 .project-showcase__arrows {
   display: flex;
-  gap: 7px;
+  gap: 5px;
 }
 
 .project-showcase__arrows button {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.27);
@@ -795,8 +781,8 @@ textarea:focus-visible {
 }
 
 .project-showcase__arrows svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .approach-section {
@@ -1071,8 +1057,7 @@ textarea:focus-visible {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
-.form-required-note,
-.form-privacy-note {
+.form-required-note {
   color: rgba(255, 255, 255, 0.53);
   font-size: 0.6rem;
   line-height: 1.6;
@@ -1117,10 +1102,6 @@ textarea:focus-visible {
 
 .form-status--error {
   color: #ffb09f;
-}
-
-.form-privacy-note {
-  margin: 6px 0 0;
 }
 
 .site-footer {
@@ -1693,36 +1674,36 @@ textarea:focus-visible {
   }
 
   .project-showcase__track {
-    height: min(112vw, 430px);
-    min-height: 320px;
-    max-height: 430px;
+    height: min(110vw, 420px);
+    min-height: 340px;
+    max-height: 420px;
   }
 
   .project-showcase__controls {
-    gap: 10px;
-    padding-top: 12px;
+    gap: 8px;
+    padding-top: 8px;
   }
 
   .project-showcase__pagination {
-    gap: 5px;
+    gap: 4px;
   }
 
   .project-showcase__dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
 
   .project-showcase__dot.is-active {
-    width: 17px;
+    width: 14px;
   }
 
   .project-showcase__arrows {
-    gap: 5px;
+    gap: 4px;
   }
 
   .project-showcase__arrows button {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
   }
 
   .approach-heading {

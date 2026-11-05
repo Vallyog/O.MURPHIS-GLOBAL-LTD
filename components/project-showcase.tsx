@@ -12,40 +12,76 @@ type PointerStart = {
 
 const showcaseImages = [
   {
-    src: "/projects/showcase-01.jpg",
-    alt: "White ceramic toilet displayed on a pedestal.",
+    src: "/projects/showcase-07.jpg",
+    alt: "White ceramic bathroom fixtures on display.",
+  },
+  {
+    src: "/projects/showcase-10.jpg",
+    alt: "A white toilet and pedestal basin on display.",
   },
   {
     src: "/projects/showcase-02.jpg",
     alt: "Shelves and boxes of sanitary ware in a stockroom.",
   },
   {
-    src: "/projects/showcase-03.jpg",
-    alt: "White ceramic sanitary ware displayed among product boxes.",
-  },
-  {
-    src: "/projects/showcase-04.jpg",
-    alt: "White ceramic toilets with black detailing on display.",
+    src: "/projects/showcase-15.jpg",
+    alt: "Packaged flexible plumbing hoses in stock.",
   },
   {
     src: "/projects/showcase-05.jpg",
     alt: "Bathroom fixtures arranged in a showroom display.",
   },
   {
-    src: "/projects/showcase-06.jpg",
-    alt: "A sink and ceramic toilets in a product showroom.",
+    src: "/projects/showcase-17.jpg",
+    alt: "A packaged faucet and plumbing fittings.",
   },
   {
-    src: "/projects/showcase-07.jpg",
-    alt: "White ceramic bathroom fixtures on display.",
+    src: "/projects/showcase-01.jpg",
+    alt: "White ceramic toilet displayed on a pedestal.",
+  },
+  {
+    src: "/projects/showcase-14.jpg",
+    alt: "A marble-pattern toilet and basin on display.",
   },
   {
     src: "/projects/showcase-08.jpg",
     alt: "A row of ceramic toilets with product signage.",
   },
   {
+    src: "/projects/showcase-13.jpg",
+    alt: "A collection of packaged plumbing fittings.",
+  },
+  {
+    src: "/projects/showcase-04.jpg",
+    alt: "White ceramic toilets with black detailing on display.",
+  },
+  {
+    src: "/projects/showcase-12.jpg",
+    alt: "Ceramic toilets and bathroom products grouped in stock.",
+  },
+  {
+    src: "/projects/showcase-06.jpg",
+    alt: "A sink and ceramic toilets in a product showroom.",
+  },
+  {
+    src: "/projects/showcase-18.jpg",
+    alt: "Packaged white plumbing pipe fittings.",
+  },
+  {
     src: "/projects/showcase-09.jpg",
     alt: "Ceramic toilet samples and product signage in a stockroom.",
+  },
+  {
+    src: "/projects/showcase-16.jpg",
+    alt: "A black ceramic toilet and basin on display.",
+  },
+  {
+    src: "/projects/showcase-03.jpg",
+    alt: "White ceramic sanitary ware displayed among product boxes.",
+  },
+  {
+    src: "/projects/showcase-11.jpg",
+    alt: "A decorative-pattern ceramic basin and toilet displayed on boxes.",
   },
 ];
 
@@ -170,10 +206,6 @@ export function ProjectShowcase() {
               priority={index === 0}
               draggable={false}
             />
-            <span className="project-showcase__image-number">
-              IMAGE {String(index + 1).padStart(2, "0")} /{" "}
-              {String(showcaseImages.length).padStart(2, "0")}
-            </span>
           </figure>
         ))}
       </div>

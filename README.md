@@ -23,25 +23,21 @@ details and service categories:
   stripped when building the `wa.me` link.
 - The service categories are explicitly marked as potential/unconfirmed on
   the site. Confirm them before presenting them as active company services.
-- The project showcase displays the nine supplied photos from
-  `public/projects/` in a swipeable carousel. It does not assign project names
-  or make claims about the images.
+- The product showcase displays 18 supplied photos from `public/projects/` in
+  a swipeable carousel. It does not assign product names or make claims about
+  the images.
 
 ## Connecting the enquiry form
 
-The quote form validates required fields in the browser. It does not claim
-success or transmit enquiry details while `company.formEndpoint` is blank.
-Configure that value with the public URL of a real form service or a
-server-side endpoint that accepts a JSON `POST` containing `name`, `email`,
-`phone`, `service`, and `message`. The form only displays success after the
-endpoint returns an HTTP success status; non-success responses and connection
-failures are shown to the visitor.
+The product enquiry form submits to a server-side route that sends email using
+Resend. Copy `.env.example` to `.env.local`, set `RESEND_API_KEY` from your
+Resend account, and replace `RESEND_FROM_EMAIL` with an address on a domain
+verified with Resend. `PRODUCT_ENQUIRY_TO_EMAIL` is set to the supplied
+recipient address; update it if needed. Add the same variables to the
+deployment environment. Never expose the Resend API key in client-side code.
 
-For production, use an endpoint you control or a reputable form provider, add
-server-side validation and spam protection, configure its allowed origins and
-data-retention policy, and avoid putting private API keys in this client-side
-configuration. If the provider requires a secret, proxy submissions through a
-server-side route and keep the secret in deployment environment variables.
+The route validates submitted fields on the server and reports delivery
+failures to the visitor instead of showing a false success.
 
 ## Check and build
 
