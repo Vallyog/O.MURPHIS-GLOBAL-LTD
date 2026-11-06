@@ -89,7 +89,7 @@ export function SiteHeader() {
           tabIndex={menuOpen ? 0 : -1}
           onClick={closeMenu}
         >
-          Start an enquiry <Icon name="arrow-up-right" />
+          Start an enquiry <Icon name="whatsapp" />
         </Link>
       </nav>
     </header>

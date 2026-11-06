@@ -1127,19 +1127,47 @@ textarea:focus-visible {
 }
 
 .footer-top-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--yellow);
-  font-size: 0.57rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
+  position: fixed;
+  z-index: 14;
+  right: max(24px, calc((100vw - var(--content-width)) / 2));
+  bottom: 24px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.footer-top-link:hover {
+  transform: translateY(-3px);
+  background: var(--yellow-bright);
+}
+
+.footer-top-link:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
 }
 
 .footer-top-link svg {
-  width: 15px;
-  height: 15px;
+  width: 19px;
+  height: 19px;
+}
+
+@media (max-width: 760px) {
+  .footer-top-link {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .footer-bottom {

@@ -22,8 +22,13 @@ export function SiteFooter() {
             <br />
             Powering possibilities.
           </p>
-          <Link className="footer-top-link" href="/#home">
-            BACK TO TOP <Icon name="arrow-up" />
+          <Link
+            className="footer-top-link"
+            href="/#home"
+            aria-label="Back to top"
+            title="Back to top"
+          >
+            <Icon name="arrow-up" />
           </Link>
         </div>
         <div className="footer-bottom">
