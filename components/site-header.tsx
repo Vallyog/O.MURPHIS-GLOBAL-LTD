@@ -80,7 +80,7 @@ export function SiteHeader() {
             onClick={closeMenu}
           >
             <span>0{index + 1}</span> {item.label}
-            <Icon name="arrow-up-right" />
+            
           </Link>
         ))}
         <Link
