@@ -49,8 +49,8 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <Link className="header-cta" href="/#contact">
-            Let’s talk <Icon name="arrow-down" />
+          <Link className="header-cta" href="https://wa.me/2348035812003" target="_blank">
+            Let’s talk <Icon name="whatsapp" />
           </Link>
 
           <button
@@ -85,7 +85,7 @@ export function SiteHeader() {
         ))}
         <Link
           className="mobile-nav__cta"
-          href="/#contact"
+          href="https://wa.me/2348035812003"
           tabIndex={menuOpen ? 0 : -1}
           onClick={closeMenu}
         >

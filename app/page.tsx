@@ -68,7 +68,7 @@ export default function Home() {
               heavy machinery.
             </p>
             <div className="hero__actions">
-              <a className="button button--yellow" href="https://wa.me/2348035812003">
+              <a className="button button--yellow" href="#contact">
                 Reach Out To Us!
               </a>
             </div>
