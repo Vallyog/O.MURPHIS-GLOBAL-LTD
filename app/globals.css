@@ -1132,23 +1132,18 @@ textarea:focus-visible {
   right: max(24px, env(safe-area-inset-right));
   bottom: max(24px, env(safe-area-inset-bottom));
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   place-items: center;
-  border: 1px solid rgba(23, 26, 25, 0.16);
+  border: 1px solid rgba(23, 26, 25, 0.18);
   border-radius: 50%;
   background: var(--yellow);
   color: var(--ink);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.24);
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
   transition:
     background 180ms ease,
     transform 180ms ease;
-}
-
-.footer-top-link svg {
-  width: 20px;
-  height: 20px;
 }
 
 .footer-top-link:hover {
@@ -1156,9 +1151,18 @@ textarea:focus-visible {
   background: var(--yellow-bright);
 }
 
-.footer-top-link:focus-visible {
-  outline: 3px solid var(--white);
-  outline-offset: 3px;
+.footer-top-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 760px) {
+  .footer-top-link {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .footer-bottom {

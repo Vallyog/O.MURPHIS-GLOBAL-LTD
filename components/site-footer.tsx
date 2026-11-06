@@ -24,9 +24,9 @@ export function SiteFooter() {
           </p>
           <Link
             className="footer-top-link"
-            href="/#home"
-            aria-label="Back to top"
-            title="Back to top"
+            href="/#top"
+            aria-label="Back to the top"
+            title="Back to the top"
           >
             <Icon name="arrow-up" />
           </Link>

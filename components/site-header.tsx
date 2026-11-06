@@ -18,7 +18,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="site-header">
+    <header className="site-header" id="top">
       <div className="header-top">
         <div className="page-wrap header-top__inner">
           <span>
