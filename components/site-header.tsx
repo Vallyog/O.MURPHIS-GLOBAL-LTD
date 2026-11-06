@@ -72,15 +72,14 @@ export function SiteHeader() {
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
       >
-        {navigation.map((item, index) => (
+        {navigation.map((item) => (
           <Link
             href={item.href}
             key={item.href}
             tabIndex={menuOpen ? 0 : -1}
             onClick={closeMenu}
           >
-            <span>0{index + 1}</span> {item.label}
-            
+            {item.label}
           </Link>
         ))}
         <Link
