@@ -29,15 +29,18 @@ details and service categories:
 
 ## Connecting the enquiry form
 
-The product enquiry form submits to a server-side route that sends email using
-Resend. Copy `.env.example` to `.env.local`, set `RESEND_API_KEY` from your
-Resend account, and replace `RESEND_FROM_EMAIL` with an address on a domain
-verified with Resend. `PRODUCT_ENQUIRY_TO_EMAIL` is set to the supplied
-recipient address; update it if needed. Add the same variables to the
-deployment environment. Never expose the Resend API key in client-side code.
+The product enquiry form submits to a server-side route, which forwards
+validated submissions to a Google Apps Script web app. Configure
+`GOOGLE_APPS_SCRIPT_URL` with the deployed `/exec` URL and
+`GOOGLE_APPS_SCRIPT_TOKEN` with the same long random token stored in the
+Apps Script project's Script Properties. Set both variables in `.env.local`
+for local development and in the deployment environment. Deploy the Apps
+Script to execute as its owner and allow public access. It sends mail through
+the owner's Google account using `MailApp`.
 
-The route validates submitted fields on the server and reports delivery
-failures to the visitor instead of showing a false success.
+The route checks the Apps Script response and reports delivery failures to the
+visitor rather than showing a false success. Do not expose the shared token in
+client-side code or commit it.
 
 ## Check and build
 

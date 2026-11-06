@@ -46,58 +46,88 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL;
-  const to = process.env.PRODUCT_ENQUIRY_TO_EMAIL;
+  const scriptUrl = process.env.GOOGLE_APPS_SCRIPT_URL;
+  const token = process.env.GOOGLE_APPS_SCRIPT_TOKEN;
 
-  if (!apiKey || !from || !to) {
+  if (!scriptUrl || !token) {
     return Response.json(
       {
         error:
-          "Email delivery is not configured yet. Please contact us directly.",
+          "The enquiry email service is not configured. Please try again later.",
       },
       { status: 503 },
     );
   }
 
-  let providerResponse: Response;
+  let endpoint: URL;
   try {
-    providerResponse = await fetch("https://api.resend.com/emails", {
+    endpoint = new URL(scriptUrl);
+  } catch {
+    return Response.json(
+      { error: "The enquiry email service is configured incorrectly." },
+      { status: 503 },
+    );
+  }
+
+  if (
+    endpoint.protocol !== "https:" ||
+    endpoint.hostname !== "script.google.com" ||
+    !endpoint.pathname.startsWith("/macros/s/") ||
+    !endpoint.pathname.endsWith("/exec")
+  ) {
+    return Response.json(
+      { error: "The enquiry email service is configured incorrectly." },
+      { status: 503 },
+    );
+  }
+
+  let scriptResponse: Response;
+  try {
+    scriptResponse = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: payload.email,
-        subject: `New product enquiry from ${payload.name.trim()}`,
-        text: [
-          `Name: ${payload.name.trim()}`,
-          `Email: ${payload.email.trim()}`,
-          `Phone: ${payload.phone.trim() || "Not provided"}`,
-          "",
-          "Products requested:",
-          payload.message.trim(),
-        ].join("\n"),
+        ...payload,
+        token,
       }),
+      signal: AbortSignal.timeout(10_000),
     });
   } catch {
     return Response.json(
-      { error: "We couldn’t connect to the email service. Please try again." },
+      { error: "We couldn’t connect to the enquiry email service. Please try again." },
       { status: 502 },
     );
   }
 
-  if (!providerResponse.ok) {
-    console.error("Product enquiry email delivery failed", {
-      status: providerResponse.status,
+  let scriptResult: unknown;
+  try {
+    scriptResult = await scriptResponse.json();
+  } catch {
+    console.error("Google Apps Script returned a non-JSON response", {
+      status: scriptResponse.status,
     });
     return Response.json(
-      { error: "We couldn’t send your enquiry. Please try again later." },
+      {
+        error:
+          "The enquiry email service returned an unexpected response. Check that the Apps Script web app is deployed for public access.",
+      },
       { status: 502 },
     );
+  }
+
+  if (
+    !scriptResponse.ok ||
+    !isRecord(scriptResult) ||
+    scriptResult.ok !== true
+  ) {
+    console.error("Google Apps Script failed to send product enquiry", {
+      status: scriptResponse.status,
+    });
+    const error =
+      isRecord(scriptResult) && typeof scriptResult.error === "string"
+        ? scriptResult.error
+        : "We couldn’t send your enquiry. Please try again later.";
+    return Response.json({ error }, { status: 502 });
   }
 
   return Response.json({ ok: true });
