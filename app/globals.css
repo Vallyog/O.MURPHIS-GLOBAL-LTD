@@ -1530,13 +1530,17 @@ textarea:focus-visible {
   .mobile-nav > .mobile-nav__cta {
     min-height: 48px;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     margin-top: 15px;
     border: 0;
     background: var(--yellow);
     color: var(--ink);
     font-size: 0.75rem;
     font-weight: 700;
+  }
+
+  .mobile-nav > .mobile-nav__cta > svg {
+    margin-left: 0;
   }
 
   .mobile-nav__cta svg {
