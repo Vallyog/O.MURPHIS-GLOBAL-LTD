@@ -1129,21 +1129,26 @@ textarea:focus-visible {
 .footer-top-link {
   position: fixed;
   z-index: 14;
-  right: max(24px, calc((100vw - var(--content-width)) / 2));
-  bottom: 24px;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
   display: grid;
   width: 48px;
   height: 48px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(23, 26, 25, 0.16);
   border-radius: 50%;
   background: var(--yellow);
   color: var(--ink);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
   transition:
     background 180ms ease,
     transform 180ms ease;
+}
+
+.footer-top-link svg {
+  width: 20px;
+  height: 20px;
 }
 
 .footer-top-link:hover {
@@ -1152,22 +1157,8 @@ textarea:focus-visible {
 }
 
 .footer-top-link:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 4px;
-}
-
-.footer-top-link svg {
-  width: 19px;
-  height: 19px;
-}
-
-@media (max-width: 760px) {
-  .footer-top-link {
-    right: 16px;
-    bottom: 16px;
-    width: 44px;
-    height: 44px;
-  }
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
 }
 
 .footer-bottom {
@@ -1530,17 +1521,13 @@ textarea:focus-visible {
   .mobile-nav > .mobile-nav__cta {
     min-height: 48px;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     margin-top: 15px;
     border: 0;
     background: var(--yellow);
     color: var(--ink);
     font-size: 0.75rem;
     font-weight: 700;
-  }
-
-  .mobile-nav > .mobile-nav__cta > svg {
-    margin-left: 0;
   }
 
   .mobile-nav__cta svg {
